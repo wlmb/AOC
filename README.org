@@ -2,6 +2,10 @@
 ** Day 1
 https://adventofcode.com/2024/day/1
 *** Task a
+I use PDL to build a ndarray with both columns, I convert them to
+rows, sort each row, convert them to columns, change the sign of one
+column, add them, sum them (a complicated subtraction), take the
+absolute value and sum over all entries.
 #+begin_src perl :tangle 1a.pl :shebang #!/usr/bin/env perl :results output
 use v5.40;
 use PDL;
@@ -37,6 +41,10 @@ FIN
 #+RESULTS:
 : 1580061
 *** Task b
+I use PDL to make a matrix Mij=(right column)j-(left column)j, negate
+to obtain 1 for equal columns, 0 for unequal, sumover to obtain the
+number of repeated values for each j, multiply by the value_j and sum
+to get the result.
 #+begin_src perl :tangle 1b.pl :shebang #!/usr/bin/env perl :results output
 use v5.40;
 use PDL;
