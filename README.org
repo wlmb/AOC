@@ -1,0 +1,75 @@
+* Solutions for AOC 2024
+** Day 1
+https://adventofcode.com/2024/day/1
+*** Task a
+#+begin_src perl :tangle 1a.pl :shebang #!/usr/bin/env perl :results output
+use v5.40;
+use PDL;
+use PDL::NiceSlice;
+my @arr;
+while(<>){
+    chomp;
+    push @arr, [split ' '];
+}
+say +(pdl([@arr])->mv(1,0)->inplace->qsort->mv(0,1)*pdl(1,-1))->sumover->abs->sumover;
+
+#+end_src
+
+#+RESULTS:
+
+#+begin_src bash :results output
+./1a.pl <<"FIN"
+3   4
+4   3
+2   5
+1   3
+3   9
+3   3
+FIN
+#+end_src
+#+RESULTS:
+: 11
+
+#+begin_src bash :results output
+./1a.pl <1a.txt
+#+end_src
+
+#+RESULTS:
+: 1580061
+*** Task b
+#+begin_src perl :tangle 1b.pl :shebang #!/usr/bin/env perl :results output
+use v5.40;
+use PDL;
+use PDL::NiceSlice;
+my @arr;
+while(<>){
+    chomp;
+    push @arr, [split ' '];
+}
+my $lists=pdl([@arr]);
+say +($lists((0))*(!($lists(*1,(0))-$lists((1))))->sumover)->sumover;
+#+end_src
+
+#+RESULTS:
+
+#+begin_src bash :results output
+./1b.pl <<EOF
+3   4
+4   3
+2   5
+1   3
+3   9
+3   3
+EOF
+#+end_src
+
+#+RESULTS:
+: PDL: Double D [2,6]
+: 31
+
+#+begin_src bash :results output
+./1b.pl <1a.txt
+#+end_src
+
+#+RESULTS:
+: 23046913
