@@ -58,6 +58,7 @@ my $lists=pdl([@arr]);
 say +($lists((0))*(!($lists(*1,(0))-$lists((1))))->sumover)->sumover;
 #+end_src
 
+(Code in https://github.com/wlmb/AOC/blob/master/1b.pl)
 #+RESULTS:
 
 #+begin_src bash :results output
