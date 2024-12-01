@@ -6,7 +6,7 @@ I use PDL to build a ndarray with both columns, I convert them to
 rows, sort each row, convert them to columns, change the sign of one
 column, add them, sum them (a complicated subtraction), take the
 absolute value and sum over all entries.
-#+begin_src perl :tangle 1a.pl :shebang #!/usr/bin/env perl :results output
+#+begin_src perl :tangle 1a.pl :shebang #!/usr/bin/env perl
 use v5.40;
 use PDL;
 use PDL::NiceSlice;
@@ -18,8 +18,6 @@ while(<>){
 say +(pdl([@arr])->mv(1,0)->inplace->qsort->mv(0,1)*pdl(1,-1))->sumover->abs->sumover;
 
 #+end_src
-
-Results:
 
 #+begin_src bash :results output
 ./1a.pl <<"FIN"
@@ -47,7 +45,7 @@ I use PDL to make a matrix Mij=(right column)j-(left column)j, negate
 to obtain 1 for equal columns, 0 for unequal, sumover to obtain the
 number of repeated values for each j, multiply by the value_j and sum
 to get the result.
-#+begin_src perl :tangle 1b.pl :shebang #!/usr/bin/env perl :results output
+#+begin_src perl :tangle 1b.pl :shebang #!/usr/bin/env perl
 use v5.40;
 use PDL;
 use PDL::NiceSlice;
@@ -61,7 +59,6 @@ say +($lists((0))*(!($lists(*1,(0))-$lists((1))))->sumover)->sumover;
 #+end_src
 
 (Code in https://github.com/wlmb/AOC/blob/master/1b.pl)
-Results:
 
 #+begin_src bash :results output
 ./1b.pl <<EOF
