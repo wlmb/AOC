@@ -19,7 +19,7 @@ say +(pdl([@arr])->mv(1,0)->inplace->qsort->mv(0,1)*pdl(1,-1))->sumover->abs->su
 
 #+end_src
 
-#+RESULTS:
+Results:
 
 #+begin_src bash :results output
 ./1a.pl <<"FIN"
@@ -31,14 +31,15 @@ say +(pdl([@arr])->mv(1,0)->inplace->qsort->mv(0,1)*pdl(1,-1))->sumover->abs->su
 3   3
 FIN
 #+end_src
-#+RESULTS:
+
+Results:
 : 11
 
 #+begin_src bash :results output
 ./1a.pl <1a.txt
 #+end_src
 
-#+RESULTS:
+Results:
 : 1580061
 
 *** Task b
@@ -60,7 +61,7 @@ say +($lists((0))*(!($lists(*1,(0))-$lists((1))))->sumover)->sumover;
 #+end_src
 
 (Code in https://github.com/wlmb/AOC/blob/master/1b.pl)
-#+RESULTS:
+Results:
 
 #+begin_src bash :results output
 ./1b.pl <<EOF
@@ -73,7 +74,7 @@ say +($lists((0))*(!($lists(*1,(0))-$lists((1))))->sumover)->sumover;
 EOF
 #+end_src
 
-#+RESULTS:
+Results:
 : PDL: Double D [2,6]
 : 31
 
@@ -81,5 +82,5 @@ EOF
 ./1b.pl <1a.txt
 #+end_src
 
-#+RESULTS:
+Results:
 : 23046913
